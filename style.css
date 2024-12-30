@@ -94,19 +94,40 @@ select option{
     align-self: center;
 }
 
-#displayAmount{
-    text-transform: uppercase;
+#displayAmountDiv{
+    border: 1px solid red;
     margin-top: .5rem;
-    width: fit-content;
-    align-self: stretch;
-    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+}
+#displayAmount{
+    text-align: center;
+}
+
+#btnDiv{
+    display: flex;
+    justify-content: space-around;
 }
 
 #submitBtn{
-    padding: .5rem 0;
+    padding: .6rem .8rem .6rem .6rem;
     border-radius: 1rem;
     background-color: violet;
 }
+
+#resetBtn{
+    padding: .6rem .8rem .6rem .6rem;
+    border-radius: 1rem;
+    background-color: lightblue;
+}
+
+#resetBtn:active,
 #submitBtn:active{
+    transform: scale(.95);
+}
+
+.btnClick{
     transform: scale(.95);
 }

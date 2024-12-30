@@ -23,7 +23,7 @@
                         <img src="bidirectional-arrow.png" alt="">
                         <select name="" id="">
                             <option selected disabled value="">Select</option>
-                            <option value="">INR</option>
+                            <option value="INR">INR</option>
                         </select>
                     </div>
                 </div>
@@ -36,15 +36,21 @@
                         <img src="bidirectional-arrow.png" alt="">
                         <select name="" id="">
                             <option selected disabled value="">Select</option>
-                            <option value="">INR</option>
+                            <option value="USD">USD</option>
                         </select>
                     </div>
                 </div>
 
             </div>
 
-            <p id="displayAmount">100 Usd = 65 inr</p>
-            <button id="submitBtn">Convert</button>
+            <div id="displayAmountDiv">
+                <p id="displayAmount"></p>
+            </div>
+
+            <div id="btnDiv">
+                <button id="submitBtn">Convert</button>
+                <button id="resetBtn" type="reset">Reset</button>
+            </div>
 
         </form>
     </div>
