@@ -19,7 +19,7 @@ async function generateOptions() {
         for (let [key, value] of Object.entries(currencyRates)){
             let newOption = document.createElement("option");
             newOption.value = key;
-            newOption.textContent = key.toLocaleUpperCase();
+            newOption.textContent = key.toUpperCase();
             selectElem.insertAdjacentElement("beforeend", newOption);
         }
     }
@@ -66,7 +66,7 @@ submitBtn.addEventListener("click", (event)=>{
     } else{
         let calculatedRate = inputElem.valueAsNumber * calculateRate(currFrom.value, currTo.value);
 
-        displayText = `${inputElem.value} ${currFrom.value} = ${calculatedRate.toFixed(2)} ${currTo.value}`;
+        displayText = `${inputElem.value} ${currFrom.value.toUpperCase()} = ${calculatedRate.toFixed(2)} ${currTo.value.toUpperCase()}`;
     }
     setTimeout(() => {
         displayAmount.innerText = displayText;
