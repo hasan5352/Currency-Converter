@@ -81,12 +81,13 @@ select{
     font-size: .8rem;
     border: none;
     width: 80px;
+    position: abs;
 }
 select:focus{
     outline: none;
 }
 select option{
-    font-size: .8rem;
+    position: relative;
 }
 
 #arrowImg{

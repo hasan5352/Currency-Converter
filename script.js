@@ -1,10 +1,37 @@
-let submitBtn = document.querySelector("#submitBtn")
-let resetBtn = document.querySelector("#resetBtn")
 
-async function getCurrencyRates(params) {           // currency rates are wrt euro
-    
+let currencyRates;
+const URL_ENDPOINT = "https://latest.currency-api.pages.dev/v1/currencies/eur.json";
+
+async function getCurrencyRates() {           // currency rates are wrt euro
+    try{
+        let response = await fetch(URL_ENDPOINT);
+        let parsedData = await response.json();
+        let data = parsedData.eur;
+        currencyRates = data;
+    } catch (err){
+        console.error(`Error in api call: ${err}`);
+    }
+}
+async function generateOptions() {
+    await getCurrencyRates();
+    let selectElems = document.querySelectorAll("select");
+    for (let selectElem of selectElems){
+        for (let [key, value] of Object.entries(currencyRates)){
+            let newOption = document.createElement("option");
+            newOption.value = key;
+            newOption.textContent = key.toLocaleUpperCase();
+            selectElem.insertAdjacentElement("beforeend", newOption);
+        }
+    }
+}
+generateOptions();
+
+function calculateRate(from, to){
+    return currencyRates[to] / currencyRates[from];
 }
 
+let submitBtn = document.querySelector("#submitBtn");
+let resetBtn = document.querySelector("#resetBtn");
 
 document.addEventListener("keypress", (event)=>{
     if(event.key == "Enter"){
@@ -27,6 +54,7 @@ submitBtn.addEventListener("click", (event)=>{
     let selectElems = document.querySelectorAll("select");
     let currFrom = selectElems[0];
     let currTo = selectElems[1];
+    console.dir(inputElem)
     
     let displayText;
     if (currFrom.value == "" && currTo.value == ""){
@@ -36,7 +64,9 @@ submitBtn.addEventListener("click", (event)=>{
     } else if (currTo.value == ""){
         displayText = `Select a currency from the '${currTo.parentElement.previousElementSibling.innerText}' section to proceed`;
     } else{
-        displayText = `${inputElem.value} ${currFrom.value} = ${90} ${currTo.value}`;
+        let calculatedRate = inputElem.valueAsNumber * calculateRate(currFrom.value, currTo.value);
+
+        displayText = `${inputElem.value} ${currFrom.value} = ${calculatedRate.toFixed(2)} ${currTo.value}`;
     }
     setTimeout(() => {
         displayAmount.innerText = displayText;
