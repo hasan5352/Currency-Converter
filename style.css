@@ -1,0 +1,112 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+html, 
+body{
+    height: 100%;
+}
+body{
+    background-color: rgb(226, 188, 130);
+}
+
+#container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    padding: 1rem 2rem 1.8rem;
+    background-color: white;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5rem;
+    width: 20vw;
+}
+form > *{
+    width: 100%;
+}
+#formH1{
+    font-size: 1.5rem;
+    text-align: center;
+    align-self: center;
+}
+
+#amountDiv{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+#inputAmount{
+    border-radius: .9rem;
+    border: 2px solid #8d7878;
+    font-size: 1rem;
+    padding: .5rem;
+    outline: none;
+}
+#inputAmount:focus{
+    border-color: rgb(71, 189, 236);
+}
+
+#currencyContainer{
+    display: flex;
+    justify-content: space-between;
+}
+.currencyDiv{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.currencyDiv p{
+    font-size: 1.1rem;
+    align-self: center;
+}
+.currencyDiv div{
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    border: 1px solid #8d7878;
+    padding: .2rem 0 .2rem .4rem;
+}
+.currencyDiv img{
+    height: 1.2rem;
+    width: 1rem;
+}
+select{
+    padding: .5rem 0;
+    font-size: .8rem;
+    border: none;
+    width: 80px;
+}
+select:focus{
+    outline: none;
+}
+select option{
+    font-size: .8rem;
+}
+
+#arrowImg{
+    height: 1.1rem;
+    align-self: center;
+}
+
+#displayAmount{
+    text-transform: uppercase;
+    margin-top: .5rem;
+    width: fit-content;
+    align-self: stretch;
+    opacity: 0;
+}
+
+#submitBtn{
+    padding: .5rem 0;
+    border-radius: 1rem;
+    background-color: violet;
+}
+#submitBtn:active{
+    transform: scale(.95);
+}

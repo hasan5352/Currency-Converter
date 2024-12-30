@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="container">
+        <form action="#">
+            <h1 id="formH1">Currency Converter</h1>
+            <div id="amountDiv">
+                <p>Enter Amount</p>
+                <input value="0" min="0" id="inputAmount" placeholder="Enter Amount..." type="number">
+            </div>
+
+            <div id="currencyContainer">
+                <div class="currencyDiv">
+                    <p>From</p>
+                    <div>
+                        <img src="bidirectional-arrow.png" alt="">
+                        <select name="" id="">
+                            <option selected disabled value="">Select</option>
+                            <option value="">INR</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <img id="arrowImg" src="bidirectional-arrow.png" alt="">
+
+                <div class="currencyDiv">
+                    <p>To</p>
+                    <div>
+                        <img src="bidirectional-arrow.png" alt="">
+                        <select name="" id="">
+                            <option selected disabled value="">Select</option>
+                            <option value="">INR</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <p id="displayAmount">100 Usd = 65 inr</p>
+            <button id="submitBtn">Convert</button>
+
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
