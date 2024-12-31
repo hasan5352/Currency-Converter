@@ -1,4 +1,4 @@
-
+import { countryList } from './countryCodes.js';
 let currencyRates;
 const URL_ENDPOINT = "https://latest.currency-api.pages.dev/v1/currencies/eur.json";
 
@@ -22,6 +22,15 @@ async function generateOptions() {
             newOption.textContent = key.toUpperCase();
             selectElem.insertAdjacentElement("beforeend", newOption);
         }
+        
+        selectElem.addEventListener("change", (evnt)=>{     // Change country flag
+            let imgElem = selectElem.previousElementSibling;
+            let countryCode = countryList[selectElem.value.toUpperCase()];
+            if (countryCode){
+                imgElem.src = "";
+                imgElem.src = `https://flagsapi.com/${countryCode}/flat/64.png`;
+            }
+        });
     }
 }
 generateOptions();
@@ -54,7 +63,6 @@ submitBtn.addEventListener("click", (event)=>{
     let selectElems = document.querySelectorAll("select");
     let currFrom = selectElems[0];
     let currTo = selectElems[1];
-    console.dir(inputElem)
     
     let displayText;
     if (currFrom.value == "" && currTo.value == ""){
